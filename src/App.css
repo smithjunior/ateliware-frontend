@@ -35,6 +35,11 @@ button {
   align-items: center;
 }
 
+.logo {
+  width: 270px;
+  height: 74px;
+}
+
 .content {
   width: 100%;
   background: #fff;
