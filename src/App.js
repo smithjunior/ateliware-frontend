@@ -3,7 +3,7 @@ import Routes from './routes'
 // import logo from './logo.svg'
 import './App.css'
 
-function App() {
+function App () {
   return (
     <div className='container'>
       {/* <img src={logo} alt='Ateliware' /> */}
