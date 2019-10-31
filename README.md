@@ -1,6 +1,6 @@
 # Ateliware Frontend application
 
-Aplication to list popular repositories on GitHub by language!
+Application to list popular repositories on GitHub by language!
 
 ## Running local
 
