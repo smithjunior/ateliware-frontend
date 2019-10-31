@@ -6,6 +6,7 @@ import {
   useParams, Link
 } from 'react-router-dom'
 import api from '../../services/api'
+import Loader from '../../component/Loader'
 import './styles.css'
 
 export default function RepositoriesList({ history }) {
@@ -25,15 +26,22 @@ export default function RepositoriesList({ history }) {
     <p>
       List of the most popular <strong>{language}</strong> repositories!
     </p>
-    <ul className="repo-list">
-      {repositories.map(repositorie => (
-        <li key={repositorie.id}>
-          <header style={{ backgroundImage: 'url(https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png)' }} />
-          <Link to={`/list/${language}/${repositorie.id}`}><button className='btn'>{repositorie.name}</button></Link>
-        </li>
-      ))}
-    </ul>
-    <Link to='/'><button className='btn'>Back</button></Link>
+    {repositories.length > 0 ? (
+      <ul className="repo-list">
+        {repositories.map(repositorie => (
+          <li key={repositorie.id}>
+            <header style={{ backgroundImage: 'url(https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png)' }} />
+            <Link to={`/list/${language}/${repositorie.id}`}><button className='btn'>{repositorie.name}</button></Link>
+          </li>
+        ))}
+      </ul>
+    ) :
+      (
+        <Loader />
+      )}
+    <Link to='/'>
+      <button className='btn'>Back</button>
+    </Link>
   </>
   )
 }
